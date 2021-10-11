@@ -54,7 +54,7 @@ class Connection extends Thread {
       Scanner sc = new Scanner(System.in);
       String nome = sc.nextLine();
       System.out.println("\nChat iniciado:");
-      String data; // read a line of data from the stream, lê do cliente
+      // String data; // read a line of data from the stream, lê do cliente
       // String data = in.readUTF(); // read a line of data from the stream, lê do
       // cliente
       // String frase = sc.nextLine();
@@ -64,7 +64,7 @@ class Connection extends Thread {
         if (!frase.isEmpty()) {
           out.writeUTF(nome + ": " + frase); // UTF is a string encoding see Sn. 4.4, escreve para o servidor
         }
-        data = in.readUTF(); // read a line of data from the stream, lê do cliente
+        String data = in.readUTF(); // read a line of data from the stream, lê do cliente
         System.out.println(data); // Imprime no terminal do servidor
         frase = sc.nextLine();
       }

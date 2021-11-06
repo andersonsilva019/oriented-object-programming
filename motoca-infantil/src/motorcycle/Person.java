@@ -3,8 +3,8 @@ package motorcycle;
 public class Person {
   private String name;
   private int age;
-  
-  public Person(String name, int age){
+
+  public Person(String name, int age) {
     this.age = age;
     this.name = name;
   }
@@ -17,8 +17,8 @@ public class Person {
     return age;
   }
 
-  public String toString(){
-    return "["+this.name+":"+this.age+"]";
+  public String toString() {
+    return "[" + this.name + ":" + this.age + "]";
   }
-  
+
 }

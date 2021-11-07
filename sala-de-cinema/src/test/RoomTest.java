@@ -9,6 +9,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 
 import main.Person;
 import main.Room;
@@ -34,6 +35,7 @@ public class RoomTest {
 
   @Test
   @DisplayName("Deve reservar um cliente dado um numero da cadeira como entrada")
+  @RepeatedTest(value = 3)
   public void reserveTest() {
     room.reserve(this.personOne.getId(), this.personOne.getPhone(), 2);
     assertEquals("[ - - Anderson:1234 - ]", room.toString());
@@ -43,8 +45,8 @@ public class RoomTest {
   @DisplayName("Deve emitir um erro ao tentar reservar um cliente com mesmo id")
   public void notReserveWithEqualsId() {
     room.reserve(this.personOne.getId(), this.personOne.getPhone(), 2);
+    assertEquals("[ - - Anderson:1234 - ]", room.toString());
     room.reserve(this.personOne.getId(), this.personOne.getPhone(), 1);
-
     assertEquals("failure: cliente ja esta no cinema\n", outContent.toString());
   }
 
@@ -52,8 +54,8 @@ public class RoomTest {
   @DisplayName("Deve emitir um erro ao tentar reservar um cliente em um lugar ocupado")
   public void notReserveWithNumberOfChairsEquals() {
     room.reserve(this.personOne.getId(), this.personOne.getPhone(), 2);
+    assertEquals("[ - - Anderson:1234 - ]", room.toString());
     room.reserve(this.personTwo.getId(), this.personTwo.getPhone(), 2);
-
     assertEquals("failure: cadeira ja esta ocupada\n", outContent.toString());
   }
 
@@ -61,8 +63,8 @@ public class RoomTest {
   @DisplayName("Deve retirar um cliente da sala de cinema")
   public void cancelTest() {
     room.reserve(this.personOne.getId(), this.personOne.getPhone(), 2);
+    assertEquals("[ - - Anderson:1234 - ]", room.toString());
     room.cancel(this.personOne.getId());
-
     assertEquals("[ - - - - ]", room.toString());
   }
 }

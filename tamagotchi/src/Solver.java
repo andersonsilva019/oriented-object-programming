@@ -1,4 +1,3 @@
-package tamagotchi;
 
 import java.util.Scanner;
 
@@ -23,7 +22,7 @@ public class Solver {
         pet.play();
       } else if (ui[0].equals("eat")) {
         pet.eat();
-      } else if (ui[0].equals("shower")) {
+      } else if (ui[0].equals("clean")) {
         pet.shower();
       } else if (ui[0].equals("sleep")) {
         pet.sleep();

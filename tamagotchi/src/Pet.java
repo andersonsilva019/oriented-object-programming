@@ -1,6 +1,8 @@
-package tamagotchi;
 
 public class Pet {
+  /**
+   * Declaração dos atributos
+   */
   private int energyMax, hungryMax, cleanMax;
   private int energy, hungry, shower;
   private int diamonds;
@@ -8,10 +10,11 @@ public class Pet {
   private boolean alive;
 
   /**
+   * Método construtor para inicializar as informações do Pet
    * 
-   * @param energy nivel de energia maxima do Pet
-   * @param hungry nivel saciedade maxima do Pet
-   * @param shower nivel de limpeza maxima do Pet
+   * @param energy nível de energia maxima do Pet
+   * @param hungry nível saciedade maxima do Pet
+   * @param shower nível de limpeza maxima do Pet
    */
   public Pet(int energy, int hungry, int shower) {
     this.energyMax = energy;
@@ -27,9 +30,10 @@ public class Pet {
 
   // Atribui o valor de energia
   // Se o valor ficar abaixo de 0, o pet morre de fraqueza
-  // Garanta que os valores ficarão no interalo 0 - max
+  // Garanta que os valores ficarão no intervalo 0 - max
   // Use esse modelo para fazer os outros métodos set
   /**
+   * Método de encapsulamento(setter)
    * 
    * @param value quantidade de energia a ser adicionado ao Pet
    */
@@ -45,6 +49,7 @@ public class Pet {
   }
 
   /**
+   * Método de encapsulamento(setter)
    * 
    * @param value quantidade de comida a ser adicionado ao Pet
    */
@@ -61,8 +66,9 @@ public class Pet {
   }
 
   /**
+   * Método de encapsulamento(setter)
    * 
-   * @param value nivel de energia a ser adicionado ao Pet
+   * @param value nível de energia a ser adicionado ao Pet
    */
   void setClean(int value) {
     if (value <= 0) {
@@ -76,30 +82,65 @@ public class Pet {
     }
   }
 
+  /**
+   * Método de encapsulamento(getter)
+   * 
+   * @return nível de limpeza
+   */
   int getClean() {
     return this.shower;
   }
 
+  /**
+   * Método de encapsulamento(getter)
+   * 
+   * @return nível de saciedade
+   */
   int getHungry() {
     return this.hungry;
   }
 
+  /**
+   * Método de encapsulamento(getter)
+   * 
+   * @return nível de energia
+   */
   int getEnergy() {
     return this.energy;
   }
 
+  /**
+   * Método de encapsulamento(getter)
+   * 
+   * @return nível máximo de energia
+   */
   int getEnergyMax() {
     return this.energyMax;
   }
 
+  /**
+   * Método de encapsulamento(getter)
+   * 
+   * @return nível máximo de limpeza
+   */
   int getCleanMax() {
     return this.cleanMax;
   }
 
+  /**
+   * Método de encapsulamento(getter)
+   * 
+   * @return nível máximo de saciedade
+   */
   int getHungryMax() {
     return this.hungryMax;
   }
 
+  /**
+   * Método que verifica se o Pet está vivo
+   * 
+   * @return Retorna true se o Pet ainda tá vivo. Caso contrário, retorna false;
+   */
   public boolean testAlive() {
     if (this.alive) {
       return true;
@@ -123,7 +164,7 @@ public class Pet {
     }
   }
 
-  // # O comando "$shower" alteram em -3 energia, -1 na saciedade, MAX na limpeza,
+  // # O comando "$clean" alteram em -3 energia, -1 na saciedade, MAX na limpeza,
   // +0 diamantes, +2 na idade.
   public void shower() {
     if (this.testAlive()) {
@@ -148,7 +189,6 @@ public class Pet {
   // # Para dormir, precisa ter perdido pelo menos 5 unidades de energia
   // # O Comando "$sleep" aumenta energia até o máximo e idade aumenta do número
   // de turnos que o pet dormiu.
-  // #Os outros atributos permanecem inalterados.
 
   public void sleep() {
     if (this.testAlive()) {
@@ -156,7 +196,7 @@ public class Pet {
       if (resultTemp >= 5) {
         this.setEnergy(this.getEnergyMax());
         this.setHungry(this.getHungry() - 1);
-        this.age += resultTemp;
+        this.age += 1;
       } else {
         System.out.println("fail: nao esta com sono");
       }

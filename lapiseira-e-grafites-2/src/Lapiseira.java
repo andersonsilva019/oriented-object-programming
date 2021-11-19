@@ -23,6 +23,12 @@ public class Lapiseira {
     this.tambor = new ArrayList<Grafite>();
   }
 
+  /**
+   * Método que realiza uma inserção
+   * 
+   * @param grafite
+   * @return
+   */
   public boolean inserir(Grafite grafite) {
     if (this.calibre != grafite.getCalibre()) {
       System.out.println("fail: calibre incompatível");
@@ -33,6 +39,11 @@ public class Lapiseira {
     }
   }
 
+  /**
+   * Método que remove um grafite do tambor para o bico da lapiseira
+   * 
+   * @return True se a operação foi concluída e false caso contrário.
+   */
   public boolean puxar() {
     if (this.tambor.size() == 0) {
       System.out.println("fail: nao existe grafite no tambor");
@@ -70,6 +81,11 @@ public class Lapiseira {
     }
   }
 
+  /**
+   * Método que remove um grafite do bico
+   * 
+   * @return Grafite ou null
+   */
   public Grafite remover() {
     if (this.bico == null) {
       System.out.println("fail: nao existe grafite");
@@ -91,7 +107,6 @@ public class Lapiseira {
     if (this.bico == null) {
       System.out.println("fail: nao existe grafite no bico");
     } else if (this.bico.getTamanho() <= TAMANHO_MIN_GRAFITE) {
-      this.bico = null;
       System.out.println("warning: grafite acabou");
     } else if (this.bico.getTamanho() - desgaste == TAMANHO_MIN_GRAFITE) {
       this.bico.setTamanho(this.bico.getTamanho() - desgaste);

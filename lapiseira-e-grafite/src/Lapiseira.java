@@ -64,21 +64,19 @@ class Lapiseira {
   }
 
   public void escrever() {
-    Grafite grafiteRef = this.grafite;
-    int desgaste = grafiteRef.desgastePorFolha();
+    int desgaste = this.grafite.desgastePorFolha();
 
-    if (grafiteRef.getTamanho() <= TAMANHO_MIN_GRAFITE) {
-      grafiteRef = null;
+    if (this.grafite.getTamanho() <= TAMANHO_MIN_GRAFITE) {
       System.out.println("warning: grafite acabou");
-    } else if (grafiteRef.getTamanho() - desgaste == TAMANHO_MIN_GRAFITE) {
-      grafiteRef.setTamanho(grafiteRef.getTamanho() - desgaste);
+    } else if (this.grafite.getTamanho() - desgaste == TAMANHO_MIN_GRAFITE) {
+      this.grafite.setTamanho(this.grafite.getTamanho() - desgaste);
       System.out.println("warning: grafite acabou");
-    } else if (grafiteRef.getTamanho() - desgaste < TAMANHO_MIN_GRAFITE) {
+    } else if (this.grafite.getTamanho() - desgaste < TAMANHO_MIN_GRAFITE) {
       System.out.println("fail: folha incompleta");
       System.out.println("warning: grafite acabou");
-      grafiteRef.setTamanho(TAMANHO_MIN_GRAFITE);
+      this.grafite.setTamanho(TAMANHO_MIN_GRAFITE);
     } else {
-      grafiteRef.setTamanho(grafiteRef.getTamanho() - desgaste);
+      this.grafite.setTamanho(this.grafite.getTamanho() - desgaste);
     }
   }
 }

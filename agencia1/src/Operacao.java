@@ -18,6 +18,7 @@ public class Operacao {
     return String.format("%1$" + length + "s", string);
   }
 
+  @Override
   public String toString() {
     return pad("" + indice, 2) + ":" + pad("" + label, 9) + ":" + pad("" + value, 5) + ":" + pad("" + saldo, 5);
   }

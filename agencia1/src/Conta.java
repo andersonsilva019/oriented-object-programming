@@ -1,8 +1,14 @@
 public class Conta {
-  // O número da conta
-  private int id;
+  // Atributos
+
+  private int id; // O número da conta
   private Financas financas;
 
+  /**
+   * Método construtor
+   * 
+   * @param id O número da conta
+   */
   public Conta(int id) {
     this.id = id;
     this.financas = new Financas();
@@ -10,6 +16,12 @@ public class Conta {
   }
 
   // só realiza a operação se houver dinheiro suficiente na conta
+  /**
+   * Método que realiza uma operação de saque
+   * 
+   * @param value O valor a ser sacado
+   * @return true se o saque foi realizado com sucesso, false caso contrário
+   */
   public boolean sacar(int value) {
     Boolean hasBalance = this.financas.getSaldo() >= value;
     if (!hasBalance) {
@@ -21,6 +33,12 @@ public class Conta {
   }
 
   // retira o dinheiro, mesmo que o saldo fique negativo
+  /**
+   * Método que realiza uma operação de tarifa
+   * 
+   * @param value O valor da tarifa
+   * @return true se a tarifa foi realizada com sucesso, false caso contrário
+   */
   public boolean tarifar(int value) {
     this.financas.addOperacao(Label.tarifa, value);
     return true;
@@ -28,6 +46,12 @@ public class Conta {
 
   // se o índice for válido e representar uma operação de tarifa
   // adicione o mesmo valor tarifado, mas com label de extorno
+  /**
+   * Método que realiza uma operação de extorno
+   * 
+   * @param indice O índice da operação
+   * @return true se o extorno foi realizado com sucesso, false caso contrário
+   */
   public boolean extornar(int indice) {
     if (indice < 0 || indice >= this.financas.getExtrato().size()) {
       System.out.println("fail: indice " + indice + " invalido");
@@ -43,6 +67,13 @@ public class Conta {
   }
 
   // adiciona valor à conta
+  /**
+   * Método que realiza uma operação de depósito
+   * 
+   * @param label O label da operação
+   * @param value O valor da operação
+   * @return true se o depósito foi realizado com sucesso, false caso contrário
+   */
   public boolean creditar(Label label, int value) {
     if (value <= 0) {
       System.out.println("fail: valor invalido");
@@ -52,6 +83,7 @@ public class Conta {
     return true;
   }
 
+  @Override
   public String toString() {
     return String.format("conta:%d saldo:%d", this.id, this.financas.getSaldo());
   }

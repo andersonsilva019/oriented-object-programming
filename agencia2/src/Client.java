@@ -26,11 +26,7 @@ class Client {
   public java.lang.String toString() {
     String str = "- " + this.clientId + " [";
     for (Account account : this.accounts) {
-      if (account instanceof CheckingAccount) {
-        str += account.getId() + ", ";
-      } else if (account instanceof SavingsAccount) {
-        str += account.getId();
-      }
+      str += (account instanceof CheckingAccount) ? account.getId() + ", " : account.getId();
     }
     str += "]\n";
     return str;

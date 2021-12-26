@@ -54,7 +54,6 @@ public class Motorcycle {
     }
   }
 
-  // buzinar
   public void honk() {
     if (this.person != null) {
       System.out.print("P");

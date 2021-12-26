@@ -32,7 +32,7 @@ public class Car {
   }
   
   public void fuel(int gas){
-    int somaGas = this.pass + gas;
+    int somaGas = this.gas + gas;
     if(somaGas <= this.gasMax){
       this.gas = somaGas;
     }else{
